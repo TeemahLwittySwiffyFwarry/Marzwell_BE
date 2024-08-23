@@ -27,7 +27,7 @@ class ContactMessageViewSet(viewsets.ModelViewSet):
                 subject=f"Contact Form Submission: {subject}",
                 message=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}",
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=['recipient@example.com'],  # Replace with the actual recipient email address
+                recipient_list=['irecruitmentmain@gmail.com'],  # Replace with the actual recipient email address
                 fail_silently=False,
             )
             # Save the contact message
