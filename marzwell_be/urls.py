@@ -24,5 +24,6 @@ urlpatterns = [
     path('api/', include('registration.urls')),
     path('api/', include('testimonial.urls')),
     path('api/', include('contactmsg.urls')),# Include the registration app URLs
+    path('api/', include('user.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
