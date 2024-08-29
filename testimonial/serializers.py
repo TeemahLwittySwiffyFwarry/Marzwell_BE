@@ -4,4 +4,4 @@ from .models import Testimonial
 class TestimonialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimonial
-        fields = ['id', 'name', 'relationship_to_school', 'testimonial', 'rating', 'image', 'date_created', 'date_modified']
+        fields = ['id', 'name', 'relationship_to_school', 'testimonial', 'rating', 'image','approved' 'date_created', 'date_modified']
