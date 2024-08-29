@@ -1,5 +1,5 @@
-from rest_framework import viewsets
-from django.utils import timezone  # Add this import
+from rest_framework import viewsets, serializers
+from django.utils import timezone
 from .models import Testimonial
 from .serializers import TestimonialSerializer
 
@@ -11,12 +11,11 @@ class TestimonialViewSet(viewsets.ModelViewSet):
         serializer.save()
 
     def perform_update(self, serializer):
-        # Perform custom validation or logic if needed
         instance = serializer.save()
 
-        # Example: Prevent setting `date_created` to a future date
-        if instance.date_created and instance.date_created > timezone.now().date():
+        # Convert `date_created` to date before comparison
+        if instance.date_created and instance.date_created.date() > timezone.now().date():
             raise serializers.ValidationError("The creation date cannot be in the future.")
-
+        
         # Save the instance after any custom logic
         serializer.save()
