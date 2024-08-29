@@ -1,21 +1,15 @@
-from rest_framework import viewsets, serializers
-from django.utils import timezone
+from rest_framework import viewsets
 from .models import Testimonial
 from .serializers import TestimonialSerializer
 
 class TestimonialViewSet(viewsets.ModelViewSet):
-    queryset = Testimonial.objects.all().order_by('-date_created')
+    queryset = Testimonial.objects.all()
     serializer_class = TestimonialSerializer
-    
+
     def perform_create(self, serializer):
-        serializer.save()
+        # Automatically set the `date_created` field only when creating a new instance
+        serializer.save(date_created=self.request.data.get('date_created', None))
 
     def perform_update(self, serializer):
-        instance = serializer.save()
-
-        # Convert `date_created` to date before comparison
-        if instance.date_created and instance.date_created.date() > timezone.now().date():
-            raise serializers.ValidationError("The creation date cannot be in the future.")
-        
-        # Save the instance after any custom logic
+        # Allow updates to the `date_created` field
         serializer.save()
