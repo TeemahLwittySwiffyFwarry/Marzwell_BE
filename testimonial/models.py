@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Testimonial(models.Model):
     # Define the choices for the relationship field
@@ -34,7 +35,7 @@ class Testimonial(models.Model):
     )
     testimonial = models.TextField()
     image = models.ImageField(upload_to='testimonials/', blank=True, null=True)
-    date_created = models.DateTimeField()
+    date_created = models.DateTimeField(default=timezone.now, blank=True, null=True)
     date_modified = models.DateTimeField(auto_now=True)
     rating = models.PositiveIntegerField(default=5)
     approval = models.CharField(max_length=20, choices=APPROVAL_CHOICES, default='pending_approval')
