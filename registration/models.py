@@ -6,15 +6,15 @@ class Pupil(models.Model):
 
     # Define grade choices
     GRADE_CHOICES = [
-        ('toddler_1', 'Toddler 1'),
-        ('toddler_2', 'Toddler 2'),
-        ('junior_infant', 'Junior Infant'),
-        ('senior_infant', 'Senior Infant'),
-        ('year_one', 'Year One'),
-        ('year_two', 'Year Two'),
-        ('year_three', 'Year Three'),
-        ('year_four', 'Year Four'),
-        ('year_five', 'Year Five'),
+        ('Toddler One', 'Pre-Nursery'),
+        ('Toddler Two', 'Nursery One'),
+        ('Junior Infant', 'Nursery Two'),
+        ('Senior Infant', 'Kindergarten'),
+        ('Year One', 'Primary Two'),
+        ('Year Two', 'Primary Three'),
+        ('Year Three', 'Primary Four'),
+        ('Year Four', 'Primary Five'),
+        ('Year Five', 'Primary Six'),
     ]
     
     STATUS_CHOICES = [
