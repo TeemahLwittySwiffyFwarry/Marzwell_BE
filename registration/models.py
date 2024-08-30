@@ -18,10 +18,10 @@ class Pupil(models.Model):
     ]
     
     STATUS_CHOICES = [
-    ('processing', 'Processing'),
-    ('contacted', 'Contacted'),
-    ('awaiting_exam', 'Awaiting Exam'),
-    ('admitted', 'Admitted'),
+    ('Processing', 'Processing'),
+    ('Contacted', 'Contacted'),
+    ('Awaiting Exam', 'Awaiting Exam'),
+    ('Admitted', 'Admitted'),
 ]
 
 
