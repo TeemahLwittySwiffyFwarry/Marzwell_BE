@@ -18,9 +18,12 @@ class Pupil(models.Model):
     ]
     
     STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('admitted','Admitted'),
-    ]
+    ('processing', 'Processing'),
+    ('contacted', 'Contacted'),
+    ('awaiting_exam', 'Awaiting Exam'),
+    ('admitted', 'Admitted'),
+]
+
 
     parent_name = models.CharField(max_length=100)
     pupil_name = models.CharField(max_length=100)
@@ -28,7 +31,7 @@ class Pupil(models.Model):
     age = models.CharField(max_length=2, choices=AGE_CHOICES)
     phone_number = models.CharField(max_length=15)
     date_registered = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='processing')
 
     def __str__(self):
         return f"Mr/Mrs. {self.parent_name} is registering {self.pupil_name} in {self.grade}"
