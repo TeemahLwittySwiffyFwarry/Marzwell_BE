@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'contactmsg',
     'corsheaders',
     'whitenoise.runserver_nostatic',
+    'import_export',
     
 ]
 
